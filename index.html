@@ -16,6 +16,12 @@
         <div class="product-container">
           <div class="product-image">
             <!-- image goes here -->
+            <!-- v-bind เอาไว้เชื่อมโยงข้อมูลใน ไฟล์ main กับ attribute
+            ซึ่ง attribute ในทีนี้คือ src (การทำงานเหมือนกับ {{ }}) -->
+            <!-- Full writing <img v-bind:src="image" alt=""> -->
+            <!-- Short hand writing -->
+            <img :src="image" alt="">
+            <a :href="url">Click me!</a>
           </div>
           <div class="product-info">
             <h1>{{ product }}</h1>
