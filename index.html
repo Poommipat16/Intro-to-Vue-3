@@ -26,8 +26,10 @@
             <ul>
               <li v-for="detail in details">{{ detail }}</li>
             </ul>
-            <div v-for="variant in variants" :key="variant.id">{{ variant.color }}</div>
-            <button class="button">Add to Cart</button>
+            <div v-for="variant in variants" :key="variant.id" @mouseover="updateImage(variant.image)">{{ variant.color }}</div>
+            <!-- Event handling : v-on : ใช้เพื่อ check event ที่เกิดบนหน้าเว็บ -->
+            <button class="button" @click="addToCart">Add to Cart</button>
+            <button class="button" @click="decrements">Decrements</button>
           </div>
         </div>
       </div>
