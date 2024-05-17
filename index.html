@@ -19,6 +19,12 @@
           </div>
           <div class="product-info">
             <h1>{{ product }}</h1>
+            <!-- v-if : ไม่จำเป็นต้องมี else เสมอไปสามารถมี if ตัวเดียวได้-->
+            <p v-if="inventory > 10">In Sotck</p>
+            <p v-else-if="inventory <= 10 && inventory >0">Almost sold out</p>
+            <p v-else>Out of Stock</p>
+            <!-- v-show use for toggle การแสดงผลบนหน้าเว็บไซต์ ระบบจะ set display = none -->
+            <p v-show='onSale'>On Sale</p>
           </div>
         </div>
       </div>
