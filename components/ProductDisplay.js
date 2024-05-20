@@ -39,9 +39,18 @@ app.component('product-display', {
           v-on:click="addToCart">
           Add to Cart
         </button>
+        <button 
+          class="button" 
+          :class="{ disabledButton: !inStock }" 
+          :disabled="!inStock" 
+          v-on:click="delProduct">
+          Remove Product
+        </button>
+        
       </div>
     </div>
   </div>`,
+
   data() {
     return {
         product: 'Socks',
@@ -54,9 +63,13 @@ app.component('product-display', {
         ]
     }
   },
+  
   methods: {
       addToCart() {
-          this.cart += 1
+          this.$emit('add-to-cart', this.variants[this.selectedVariant].id)
+      },
+      delProduct() {
+          this.$emit('del-product')
       },
       updateVariant(index) {
           this.selectedVariant = index
